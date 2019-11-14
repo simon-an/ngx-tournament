@@ -1,0 +1,22 @@
+<mat-toolbar>
+  <input #teamname /><button mat-fab (click)="onAddTeam(teamname.value)">
+    <mat-icon>add</mat-icon>
+  </button>
+  <a [routerLink]="['/table']" routerLinkActive="router-link-active">Table</a>
+</mat-toolbar>
+
+<mat-list>
+  <mat-list-item
+    [class.mat-elevation-z2]="!isActive(team)"
+    [class.mat-elevation-z8]="isActive(team)"
+    (mouseover)="setActive(team)"
+    (mouseout)="setInactive(team)"
+    *ngFor="let team of teams$ | async"
+  >
+    <div matLine>{{ team }}</div>
+  </mat-list-item>
+</mat-list>
+
+<div class="matches">
+  <app-match [match]="match" *ngFor="let match of matches$ | async"></app-match>
+</div>

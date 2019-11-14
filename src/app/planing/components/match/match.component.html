@@ -1,0 +1,19 @@
+<mat-card>
+  <!-- <mat-card-title-group> -->
+  <mat-card-title>Match {{ match.id }}</mat-card-title>
+  <!-- </mat-card-title-group> -->
+  <mat-card-content>
+    <div>
+      <span [appTeamColor]="match.homeTeam">{{ match.homeTeam }}</span> vs
+      <span [appTeamColor]="match.GuestTeam">{{ match.GuestTeam }}</span>
+    </div>
+    <p>{{ match.scoreHomeTeam }} : {{ match.scoreGuestTeam }}</p>
+  </mat-card-content>
+  <mat-card-actions align="start">
+    <button mat-button (click)="scoreHomeTeam()">Goal for the home team</button>
+    <button mat-button (click)="scoreGuestTeam()">Goal for the guest team</button>
+  </mat-card-actions>
+  <!-- <mat-card-footer>
+    Footer
+  </mat-card-footer> -->
+</mat-card>
